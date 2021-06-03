@@ -1,7 +1,11 @@
 export interface IState {
-    id: number;
-    desc: string;
-    isComplete: boolean;
+    habbits: IHabbits[],
     isLoading: boolean
+}
+
+export interface IHabbits {
+    id: string,
+    title: string,
+    complete: boolean
 }
   

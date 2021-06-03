@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
-import { todosSlice } from './reducers/todos.slice';
+import habbitsReducer from './reducers/habbits.reducer'
 
 
 export const rootReducer = combineReducers({
-  todos: todosSlice.reducer,
+  habbits: habbitsReducer
 })
