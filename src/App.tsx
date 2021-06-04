@@ -6,6 +6,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import { Alerts } from "./components/Alert";
 import { Home } from "./pages/Home";
 import { setLoading } from "./redux/reducers/habbits.reducer";
 import {habbitsSelector} from './redux/reducers/habbits.reducer'
@@ -22,6 +23,7 @@ export default function App() {
   return (
     <Router>
       <div>
+      <Alerts/>
         <Switch>
           <Route path="/" component={Home}/>
         </Switch>

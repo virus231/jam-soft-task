@@ -1,6 +1,7 @@
 import { Center, Wrap } from "@chakra-ui/layout";
-import React from "react";
 import { useSelector } from "react-redux";
+import { DragDropContext } from 'react-beautiful-dnd';
+
 import { habbitsSelector } from "../redux/reducers/habbits.reducer";
 import { Habbit } from "./Habbit";
 

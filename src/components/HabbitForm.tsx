@@ -3,6 +3,7 @@ import { useState } from "react"
 import { useDispatch } from "react-redux"
 import { addHabbit, resetAll } from "../redux/reducers/habbits.reducer"
 import { uuid } from 'uuidv4';
+import { showAlert } from "../redux/reducers/alerts.reducer";
 
 
 export const HabbitForm = () => {
@@ -19,6 +20,7 @@ export const HabbitForm = () => {
             }))
         }
         setTitle('')
+        dispatch(showAlert())
     }
 
     const handleChange = (e: any) => {

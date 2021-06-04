@@ -31,13 +31,14 @@ export const addHabbit = createAction<any>('addHabbit')
 export const removeHabbit = createAction<string>('removeHabbit')
 export const performedHabbit = createAction<string>('performedHabbit')
 export const resetAll = createAction('resetAll')
-
+export const updateHabbit = createAction<any>('updateHabbit')
 
 export default createReducer(initialState, builder =>
   builder.addCase(setLoading, (state, { payload }) => {
     state.isLoading = payload
   }).addCase(addHabbit, (state, { payload }) => {
     state.habbits.push(payload)
+    localStorage.setItem('habbits', JSON.stringify({payload}))
     return state
   }).addCase(removeHabbit, (state, {payload}) => {
     return {
@@ -46,6 +47,7 @@ export default createReducer(initialState, builder =>
         ...state.habbits.filter(habbit => habbit.id !== payload),
       ]
     }
+
   }).addCase(performedHabbit, (state, {payload}) => {
     return {
       ...state,
@@ -63,6 +65,19 @@ export default createReducer(initialState, builder =>
     }
   }).addCase(resetAll, (state) => {
     return {...state, habbits: []}
+  }).addCase(updateHabbit, (state, {payload}:any) => {
+    return {
+      ...state,
+      habbits: [
+        ...state.habbits.map(habbit => {
+          if(habbit.id === payload.id) {
+            return {...habbit, title: payload?.value, id: payload.id}
+          }
+          console.log(habbit)
+          return habbit
+        })
+      ]
+    }
   })
 
 )

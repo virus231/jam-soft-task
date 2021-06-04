@@ -1,6 +1,8 @@
 import { Container, Box, Center, WrapItem, Text } from "@chakra-ui/react"
+import { Alerts } from "../components/Alert"
 import { HabbitForm } from "../components/HabbitForm"
 import { HabbitsList } from "../components/HabbitsList"
+import { Progress } from "../components/Progress"
 
 
 
@@ -17,6 +19,7 @@ export const Home = () => {
                     <Center flexDirection="column">
                         <HabbitForm/>
                         <HabbitsList/>
+                        <Progress/>
                     </Center>
                 </WrapItem>
             </Container>
